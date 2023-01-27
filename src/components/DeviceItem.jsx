@@ -1,28 +1,25 @@
 import Card from "@mui/material/Card";
 import {Box, Typography} from "@mui/material";
 
-export default function DeviceItem({device, timing}) {
-
+export default function DeviceItem({device}) {
+    // console.log(device)
     const handleDeviceCardOnclick = () => {
-        window.open(`http://${device.about.IP}`);
+        window.open(`http://${device.IP}`);
     }
-    // console.log(timing)
-    return (device ? <Card className="device-card" onClick={handleDeviceCardOnclick}>
+    return (<Card className="device-card" onClick={handleDeviceCardOnclick}>
         <Box className="device-card-front-face device-card-face flex-centered">
-            <Typography>{device.about.name}</Typography>
+            <Typography>{device.name}</Typography>
             {
-                timing?<Typography>{timing?.add - timing?.start}ms</Typography>:"---"
+                device.timing?<Typography>{device.timing?.add - device.timing?.start}ms</Typography>:"---"
             }
         </Box>
 
         <Box className="device-card-back-face device-card-face flex-centered">
 
-            <Typography>MAC: {device.about.MAC}</Typography>
-            <Typography>IP: {device.about.IP}</Typography>
-            <Typography>Version: {device.about.version}</Typography>
-            <Typography>Loop IP: {device.about.loopIp}</Typography>
-
+            <Typography>MAC: {device.MAC}</Typography>
+            <Typography>IP: {device.IP}</Typography>
+            <Typography>Version: {device.version}</Typography>
         </Box>
-    </Card> : "")
+    </Card> )
 
 }
