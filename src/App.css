@@ -1,38 +1,64 @@
+#root{
+  width:100vw;
+  height: 100vh;
+}
+
 .App {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex-centered{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.device-card{
+  position: relative;
+  display: flex;
+  margin: 20px;
+  height: 100px;
+  width: 300px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.device-card:hover .device-card-back-face{
+  transform: rotateY(0);
 }
+
+.device-card:hover .device-card-front-face{
+  transform: rotateY(180deg);
+}
+
+.device-card-back-face{
+  /*position: relative;*/
+  transform: rotateY(180deg);
+}
+
+.device-card-front-face{
+  /*position: relative;*/
+  /*transform: rotateX(0);*/
+
+}
+
+.device-card-face{
+
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*padding-top: 20px;*/
+  transition: transform 1s;
+  transition-timing-function: ease-in-out;
+  backface-visibility: hidden;
+}
+
+
+
